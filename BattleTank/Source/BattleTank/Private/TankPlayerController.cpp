@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "../Public/TankPlayerController.h"
+#include "../Public/Tank.h"
 #include "GameFramework/Controller.h"
 #include "Engine/World.h"
 #include "../Public/TankPlayerController.h"
@@ -56,9 +57,10 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector & OutHitLocation) con
 	{
 		//line trace along that look direction and see what we hit (up to a max range)
 		GetLookVectorHitLocation(LookDirection, OutHitLocation);
+		return true;
 	}
 
-	return true;
+	return false;
 }
 
 bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
